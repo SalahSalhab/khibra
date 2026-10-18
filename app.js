@@ -15,26 +15,31 @@ function openOpportunity(job){showModal(`<div class="modal-content"><div class="
 document.querySelector('.modal-close').addEventListener('click',()=>modal.close());modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
 document.querySelector('#viewToggle').addEventListener('click',e=>{
  const button=e.currentTarget;
- const enteringCompany=button.textContent.includes('الشركات');
- if(!enteringCompany){button.textContent='منظور الشركات';showToast('رجعت إلى منظور الطالب');return;}
- button.textContent='منظور الطالب';
- showModal(`<div class="modal-content company-dashboard">
- <div class="modal-logo">✳</div><span class="verified-label">لوحة تحكم الشركات · نموذج تجريبي</span>
- <h2>أهلاً بك في خبرة</h2><p>تابع فرص شركتك واكتشف طلاباً مستعدين لاكتساب خبرة عملية.</p>
- <div class="company-stats">
- <div><strong>٢</strong><span>فرص منشورة</span></div>
- <div><strong>٨</strong><span>طلبات تجريبية</span></div>
- <div><strong>٣</strong><span>ملفات مرشحين</span></div>
- </div>
- <div class="company-list"><h3>فرصك الحالية</h3>
- <div class="company-list-item"><span><b>متدرّب تطوير واجهات</b><small>مدار للتقنية · تدريب</small></span><em>نشطة</em></div>
- <div class="company-list-item"><span><b>مصمم تجربة مستخدم</b><small>نواة الرقمية · مشروع قصير</small></span><em>نشطة</em></div>
- </div>
- <button class="button primary" id="dashboardPublish">＋ نشر فرصة جديدة</button>
- <small style="display:block;color:#929c93;margin-top:12px">البيانات المعروضة تجريبية، ولا توجد طلبات حقيقية مخزّنة بعد.</small>
- </div>`);
- const publish=document.querySelector('#dashboardPublish');
- if(publish)publish.addEventListener('click',()=>showModal(`<div class="modal-content"><div class="modal-logo">✳</div><h2>انشر فرصة لطلاب الجامعات</h2><p>أدخل معلومات الفرصة لتجربة نموذج النشر.</p><form class="modal-form"><input required placeholder="اسم الشركة" /><input required type="email" placeholder="بريد التواصل" /><input required placeholder="عنوان الفرصة" /><select required><option value="">نوع الفرصة</option><option>تدريب</option><option>مشروع قصير</option></select><textarea required placeholder="وصف مختصر والمهارات المطلوبة"></textarea><button class="button primary">معاينة إرسال الفرصة ←</button></form><small style="display:block;color:#929c93;margin-top:12px">لن تُنشر الفرصة للعامة قبل ربط قاعدة بيانات.</small></div>`));
+ const isStudentView=button.textContent.includes('الشركات');
+ if(isStudentView){
+   button.textContent='منظور الطالب';
+   document.querySelector('main').innerHTML=`
+   <section class="shell section company-dashboard-page">
+    <div class="eyebrow">مساحة الشركاء</div><h1 style="font-size:clamp(36px,5vw,54px);letter-spacing:0;margin:18px 0 10px">لوحة تحكم <em>الشركات</em></h1>
+    <p style="color:#758078;line-height:1.8;max-width:680px">أدر فرصك، وتابع طلبات الطلاب، واكتشف المواهب المناسبة لفريقك. هذه لوحة توضيحية لعرض فكرة المنصة.</p>
+    <div class="company-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:28px 0">
+     <div style="background:white;border:1px solid #e7ebe6;border-radius:16px;padding:22px"><strong style="font-size:30px;color:#285744;display:block">٢</strong><span>فرص منشورة تجريبياً</span></div>
+     <div style="background:white;border:1px solid #e7ebe6;border-radius:16px;padding:22px"><strong style="font-size:30px;color:#285744;display:block">٨</strong><span>طلبات تجريبية</span></div>
+     <div style="background:white;border:1px solid #e7ebe6;border-radius:16px;padding:22px"><strong style="font-size:30px;color:#285744;display:block">٣</strong><span>ملفات مرشحين تجريبية</span></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:34px 0 18px"><div><h2 style="font-size:28px">فرصك الحالية</h2><p style="color:#758078">تابع الفرص التي تعرضها شركتك.</p></div><button class="button primary" id="dashboardPublish">＋ نشر فرصة جديدة</button></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+     <article class="job-card"><span class="tag" style="align-self:start">نشطة · تدريب</span><h3>متدرّب تطوير واجهات أمامية</h3><div class="company-name">مدار للتقنية</div><div class="job-meta"><span>شهران</span><span>دمشق</span></div><p style="color:#758078;font-size:13px;line-height:1.7">المهارات: React، JavaScript، Git</p></article>
+     <article class="job-card"><span class="tag" style="align-self:start">نشطة · مشروع قصير</span><h3>مصمّم تجربة مستخدم</h3><div class="company-name">نواة الرقمية</div><div class="job-meta"><span>٣ أسابيع</span><span>عن بُعد</span></div><p style="color:#758078;font-size:13px;line-height:1.7">المهارات: Figma، UI/UX، النماذج الأولية</p></article>
+    </div>
+    <p style="margin-top:28px;color:#929c93;font-size:13px">تنبيه: كل الإحصائيات والفرص هنا تجريبية، والنشر لا يحفظ بيانات على خادم حتى الآن.</p>
+   </section>`;
+   document.querySelector('#dashboardPublish').addEventListener('click',()=>showModal(`<div class="modal-content"><div class="modal-logo">✳</div><h2>نشر فرصة جديدة</h2><p>املأ التفاصيل لتجربة واجهة النشر.</p><form class="modal-form"><input required placeholder="اسم الشركة" /><input required type="email" placeholder="بريد التواصل" /><input required placeholder="عنوان الفرصة" /><select required><option value="">نوع الفرصة</option><option>تدريب</option><option>مشروع قصير</option></select><textarea required placeholder="وصف الفرصة والمهارات المطلوبة"></textarea><button class="button primary">إرسال النموذج التجريبي ←</button></form><small style="display:block;color:#929c93;margin-top:12px">لن تُحفظ البيانات أو تُنشر للعامة حالياً.</small></div>`));
+   window.scrollTo({top:0,behavior:'smooth'});
+ }else{
+   button.textContent='منظور الشركات';
+   window.location.reload();
+ }
 });
 document.querySelector('#companyButton').addEventListener('click',()=>showModal(`<div class="modal-content"><div class="modal-logo">✳</div><h2>انشر فرصة لطلاب الجامعات</h2><p>عرّفنا بشركتك وبالفرصة التي تريد طرحها. هذا النموذج تجريبي وسيُربط بلوحة الشركات عند تجهيز الإطلاق.</p><form class="modal-form"><input required placeholder="اسم الشركة" /><input required type="email" placeholder="بريد التواصل" /><input required placeholder="عنوان الفرصة" /><textarea required placeholder="وصف مختصر والمهارات المطلوبة"></textarea><button class="button primary">إرسال تفاصيل الفرصة <span>←</span></button></form></div>`));
 document.querySelector('#profileButton').addEventListener('click',()=>document.querySelector('#profile').scrollIntoView({behavior:'smooth'}));
