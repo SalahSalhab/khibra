@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8f5" />
+  <title>خبرة | من الجامعة إلى سوق العمل</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="خبرة الصفحة الرئيسية"><span class="brand-mark">خ</span><span>خِبرة<span class="brand-en">KHIBRA</span></span></a>
+    <nav class="main-nav" aria-label="التنقل الرئيسي"><a class="active" href="#home">الرئيسية</a><a href="#opportunities">الفرص</a><a href="#how">كيف تعمل</a><a href="#profile">ملفي المهني</a></nav>
+    <div class="top-actions"><button class="text-button" id="viewToggle">منظور الشركات</button><button class="avatar" aria-label="حساب الطالب">م</button><button class="menu-button" aria-label="فتح القائمة">☰</button></div>
+  </header>
+  <main id="home">
+    <section class="hero shell">
+      <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> فرصتك الأولى تبدأ من هنا</div><h1>خبرة حقيقية،<br><em>قبل التخرّج.</em></h1><p class="hero-lead">منصّة تجمع طلاب الجامعات بالشركات المحلية في فرص تدريب ومشاريع قصيرة — وتحوّل كل تجربة إلى خطوة موثّقة في مسارك المهني.</p><div class="hero-actions"><a class="button primary" href="#opportunities">اكتشف الفرص <span>←</span></a><a class="button secondary" href="#how"><span class="play">▶</span> كيف تعمل خبرة؟</a></div><div class="social-proof"><div class="avatars"><span>ل</span><span>ر</span><span>ن</span><span>+</span></div><span><b>١٬٢٠٠+</b> طالب بدأوا رحلتهم</span></div></div>
+      <div class="hero-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card card-main"><div class="card-top"><span class="mini-logo">خ</span><span class="verified"><span>✓</span> خبرة موثّقة</span></div><div class="person-avatar">س</div><h3>سارة أحمد</h3><p class="muted">طالبة تصميم تجربة المستخدم</p><div class="skill-row"><span>Figma</span><span>UX Research</span><span>Prototyping</span></div><div class="card-divider"></div><div class="experience-label">آخر تجربة</div><div class="experience-line"><span class="company-icon">✳</span><div><b>مصممة تجربة مستخدم</b><small>نواة الرقمية · مشروع قصير</small></div><span class="check-badge">✓</span></div></div><div class="floating-note note-top"><span class="note-icon green">↗</span><span><b>ملفك يكبر</b><small>أضف إنجازاً جديداً</small></span></div><div class="floating-note note-bottom"><span class="note-icon peach">✦</span><span><b>فرصة مناسبة لك!</b><small>مصممة واجهات · عن بُعد</small></span></div><div class="sparkle s1">✳</div><div class="sparkle s2">✦</div></div>
+      <div class="hero-stats"><div><strong>٣٥٠+</strong><span>فرصة متاحة</span></div><i></i><div><strong>٨٠+</strong><span>شركة محلية</span></div><i></i><div><strong>٩٢٪</strong><span>أكملوا أول تجربة</span></div></div>
+    </section>
+    <section class="opportunities section shell" id="opportunities">
+      <div class="section-heading"><div><div class="eyebrow">خطوتك التالية</div><h2>فرص تشبه <em>طموحك</em></h2><p>مشاريع وتدريبات حقيقية من شركات تبحث عن مواهب مثلك.</p></div><a class="view-all" href="#opportunities">عرض كل الفرص <span>←</span></a></div>
+      <div class="filters"><label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن فرصة، مهارة، أو شركة..." /></label><select id="typeFilter" aria-label="نوع الفرصة"><option value="all">كل أنواع الفرص</option><option value="project">مشروع قصير</option><option value="internship">تدريب</option></select><select id="fieldFilter" aria-label="المجال"><option value="all">كل المجالات</option><option value="design">التصميم</option><option value="tech">التقنية</option><option value="marketing">التسويق</option><option value="business">الأعمال</option></select></div>
+      <div class="job-grid" id="jobGrid"></div><div class="empty-state" id="emptyState" hidden>ما لقينا فرص مطابقة. جرّب تغيير كلمات البحث أو الفلاتر.</div>
+    </section>
+    <section class="how-section" id="how"><div class="shell how-inner"><div class="how-intro"><div class="eyebrow">ببساطة، ثلاث خطوات</div><h2>من طالب إلى <em>صاحب خبرة</em></h2><p>كل بداية مهنية تحتاج فرصة واحدة. خبرة تجعل الوصول إليها أسهل، وتوثّق ما أنجزته لتبني عليه.</p><a class="button dark-button" href="#opportunities">ابدأ رحلتك <span>←</span></a></div><div class="steps"><article><span class="step-number">01</span><div class="step-icon">◎</div><h3>أنشئ ملفك</h3><p>أخبرنا عن تخصصك، مهاراتك، وما تحب أن تتعلمه.</p></article><article><span class="step-number">02</span><div class="step-icon">↗</div><h3>اختر فرصتك</h3><p>قدّم على تدريب أو مشروع قصير يناسب وقتك وطموحك.</p></article><article><span class="step-number">03</span><div class="step-icon">✳</div><h3>وثّق خبرتك</h3><p>بعد إنجاز العمل، تحصل على تقييم وإثبات يضاف لملفك.</p></article></div></div></section>
+    <section class="profile-section section shell" id="profile"><div class="profile-preview"><div class="profile-head"><div class="profile-initial">م</div><div><span class="verified-label">✓ ملف موثّق</span><h3>محمد خالد</h3><p>طالب هندسة معلوماتية · السنة الثالثة</p></div><button class="more-button" aria-label="المزيد">···</button></div><div class="profile-progress"><div class="progress-copy"><b>اكتمال الملف الشخصي</b><span>٧٥٪</span></div><div class="progress-track"><i></i></div><small>أضف مشروعاً من أعمالك لتصل إلى ١٠٠٪</small></div><div class="profile-skills"><b>المهارات</b><div class="skill-row"><span>JavaScript</span><span>React</span><span>UI Design</span><span>+٢</span></div></div><div class="profile-exp"><b>الخبرات الموثّقة <span>٢</span></b><div class="experience-line"><span class="company-icon blue">⌘</span><div><b>مطور واجهات أمامية</b><small>مدار للتقنية · مشروع ٣ أسابيع</small></div><span class="check-badge">✓</span></div></div></div><div class="profile-copy"><div class="eyebrow">أكثر من سيرة ذاتية</div><h2>كل تجربة صغيرة،<br><em>تستحق أن تُرى.</em></h2><p>ملف خبرة المهني يجمع مهاراتك ومشاريعك وتقييمات الشركات في مكان واحد. رابط واحد يروي قصتك، ويثبت ما تستطيع إنجازه.</p><div class="profile-benefit"><span>✓</span> خبرات أقرّتها الشركات المشاركة</div><div class="profile-benefit"><span>✓</span> شارك ملفك مع أصحاب العمل بسهولة</div><button class="button secondary profile-button" id="profileButton">شاهد نموذج الملف <span>←</span></button></div></section>
+    <section class="company-cta shell"><div><span class="cta-icon">✳</span><div><h2>لديك فرصة تصنع فرقاً؟</h2><p>ساعد طالباً على اكتساب خبرته الأولى، واكتشف موهبة قد تغيّر فريقك.</p></div></div><button class="button light-button" id="companyButton">انشر فرصة لطلاب الجامعات <span>←</span></button></section>
+  </main>
+  <footer class="footer shell"><a class="brand" href="#home"><span class="brand-mark">خ</span><span>خِبرة<span class="brand-en">KHIBRA</span></span></a><p>من الجامعة إلى سوق العمل.</p><span>© ٢٠٢٦ خبرة · نموذج تجريبي</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="modal"><button class="modal-close" aria-label="إغلاق">×</button><div id="modalContent"></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
