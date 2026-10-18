@@ -27,6 +27,18 @@ document.querySelector('#viewToggle').addEventListener('click',e=>{
      <div style="background:white;border:1px solid #e7ebe6;border-radius:16px;padding:22px"><strong style="font-size:30px;color:#285744;display:block">٨</strong><span>طلبات تجريبية</span></div>
      <div style="background:white;border:1px solid #e7ebe6;border-radius:16px;padding:22px"><strong style="font-size:30px;color:#285744;display:block">٣</strong><span>ملفات مرشحين تجريبية</span></div>
     </div>
+    <div style="margin:38px 0 18px"><div class="eyebrow">اكتشف المواهب</div><h2 style="font-size:28px;margin:10px 0">مواهب الطلاب</h2><p style="color:#758078">تصفّح ملفات طلاب افتراضية بحسب تخصصاتهم ومهاراتهم، واكتشف من يناسب فرص شركتك.</p></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+      <input id="studentSearch" type="search" placeholder="ابحث باسم الطالب أو المهارة أو التخصص..." style="flex:1;min-width:220px;border:1px solid #e7ebe6;border-radius:11px;padding:12px 14px;background:white;font:inherit" />
+      <select id="studentField" style="border:1px solid #e7ebe6;border-radius:11px;padding:12px;background:white;font:inherit"><option value="all">كل التخصصات</option><option value="tech">هندسة معلوماتية وتقنية</option><option value="design">تصميم</option><option value="business">إدارة وأعمال</option><option value="marketing">تسويق</option></select>
+    </div>
+    <div id="studentTalentGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px">
+      <article data-student-card data-field="tech" data-search="محمد خالد هندسة معلوماتية javascript react python git مطور واجهات" class="job-card"><div style="display:flex;align-items:center;gap:12px"><span class="company-logo" style="background:#e7efe6;color:#285744">م</span><div><h3 style="margin:0 0 4px">محمد خالد</h3><span class="company-name">هندسة معلوماتية · السنة الثالثة</span></div></div><p style="color:#758078;font-size:13px;line-height:1.8;margin-top:16px">مهتم بتطوير الويب وبناء واجهات سهلة الاستخدام.</p><div class="skill-row"><span>JavaScript</span><span>React</span><span>Python</span></div><button class="job-apply student-profile-button" style="align-self:flex-start;margin-top:18px" data-student="محمد خالد">عرض الملف والتواصل ←</button></article>
+      <article data-student-card data-field="design" data-search="سارة أحمد تصميم ux ui figma بحث المستخدم نماذج أولية" class="job-card"><div style="display:flex;align-items:center;gap:12px"><span class="company-logo" style="background:#f7e9df;color:#b57a52">س</span><div><h3 style="margin:0 0 4px">سارة أحمد</h3><span class="company-name">تصميم تجربة المستخدم · السنة الرابعة</span></div></div><p style="color:#758078;font-size:13px;line-height:1.8;margin-top:16px">تهتم بتصميم تجارب رقمية واضحة وإجراء أبحاث المستخدمين.</p><div class="skill-row"><span>Figma</span><span>UI/UX</span><span>Prototyping</span></div><button class="job-apply student-profile-button" style="align-self:flex-start;margin-top:18px" data-student="سارة أحمد">عرض الملف والتواصل ←</button></article>
+      <article data-student-card data-field="marketing" data-search="ليان عمر تسويق محتوى سوشال ميديا كتابة تحليل" class="job-card"><div style="display:flex;align-items:center;gap:12px"><span class="company-logo" style="background:#e9eef7;color:#667cac">ل</span><div><h3 style="margin:0 0 4px">ليان عمر</h3><span class="company-name">تسويق رقمي · السنة الثانية</span></div></div><p style="color:#758078;font-size:13px;line-height:1.8;margin-top:16px">مهتمة بصناعة المحتوى وتخطيط الحملات الرقمية.</p><div class="skill-row"><span>كتابة المحتوى</span><span>Social Media</span><span>Analytics</span></div><button class="job-apply student-profile-button" style="align-self:flex-start;margin-top:18px" data-student="ليان عمر">عرض الملف والتواصل ←</button></article>
+      <article data-student-card data-field="business" data-search="عمر حسن إدارة أعمال excel تحليل بيانات تنظيم مشاريع" class="job-card"><div style="display:flex;align-items:center;gap:12px"><span class="company-logo" style="background:#eeebf6;color:#8070a5">ع</span><div><h3 style="margin:0 0 4px">عمر حسن</h3><span class="company-name">إدارة أعمال · السنة الثالثة</span></div></div><p style="color:#758078;font-size:13px;line-height:1.8;margin-top:16px">مهتم بتحليل البيانات وتنظيم المشاريع والعمل ضمن فريق.</p><div class="skill-row"><span>Excel</span><span>تحليل بيانات</span><span>تنظيم مشاريع</span></div><button class="job-apply student-profile-button" style="align-self:flex-start;margin-top:18px" data-student="عمر حسن">عرض الملف والتواصل ←</button></article>
+    </div>
+    <p id="noStudentsFound" hidden style="padding:22px;color:#758078">ما لقينا طلاب مطابقين للبحث.</p>
     <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:34px 0 18px"><div><h2 style="font-size:28px">فرصك الحالية</h2><p style="color:#758078">تابع الفرص التي تعرضها شركتك.</p></div><button class="button primary" id="dashboardPublish">＋ نشر فرصة جديدة</button></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
      <article class="job-card"><span class="tag" style="align-self:start">نشطة · تدريب</span><h3>متدرّب تطوير واجهات أمامية</h3><div class="company-name">مدار للتقنية</div><div class="job-meta"><span>شهران</span><span>دمشق</span></div><p style="color:#758078;font-size:13px;line-height:1.7">المهارات: React، JavaScript، Git</p></article>
@@ -34,6 +46,27 @@ document.querySelector('#viewToggle').addEventListener('click',e=>{
     </div>
     <p style="margin-top:28px;color:#929c93;font-size:13px">تنبيه: كل الإحصائيات والفرص هنا تجريبية، والنشر لا يحفظ بيانات على خادم حتى الآن.</p>
    </section>`;
+   const studentSearch=document.querySelector('#studentSearch');
+   const studentField=document.querySelector('#studentField');
+   const studentCards=[...document.querySelectorAll('[data-student-card]')];
+   function filterStudents(){
+     const q=studentSearch.value.trim().toLowerCase();
+     let count=0;
+     studentCards.forEach(card=>{
+       const matchesText=card.dataset.search.toLowerCase().includes(q);
+       const matchesField=studentField.value==='all'||card.dataset.field===studentField.value;
+       card.hidden=!(matchesText&&matchesField);
+       if(!card.hidden)count++;
+     });
+     document.querySelector('#noStudentsFound').hidden=count>0;
+   }
+   studentSearch.addEventListener('input',filterStudents);
+   studentField.addEventListener('change',filterStudents);
+   document.querySelectorAll('[data-student]').forEach(button=>button.addEventListener('click',()=>{
+     const name=button.dataset.student;
+     const card=button.closest('[data-student-card]');
+     showModal(`<div class="modal-content"><div class="modal-logo">${name==='محمد خالد'?'م':name==='سارة أحمد'?'س':'ل'}</div><span class="verified-label">ملف طالب تجريبي</span><h2>${name}</h2><p>${card.querySelector('.company-name').textContent}</p><p>${card.querySelector('p').textContent}</p><div class="modal-tags">${[...card.querySelectorAll('.skill-row span')].map(s=>'<span>'+s.textContent+'</span>').join('')}</div><form class="modal-form"><input required placeholder="اسم ممثل الشركة" /><input required type="email" placeholder="بريد الشركة للتواصل" /><textarea placeholder="رسالة للطالب (اختياري)"></textarea><button class="button primary">معاينة رسالة التواصل ←</button></form><small style="display:block;color:#929c93;margin-top:12px">بيانات الطالب تجريبية؛ لا يتم إرسال الرسالة فعلياً.</small></div>`);
+   }));
    document.querySelector('#dashboardPublish').addEventListener('click',()=>showModal(`<div class="modal-content"><div class="modal-logo">✳</div><h2>نشر فرصة جديدة</h2><p>املأ التفاصيل لتجربة واجهة النشر.</p><form class="modal-form"><input required placeholder="اسم الشركة" /><input required type="email" placeholder="بريد التواصل" /><input required placeholder="عنوان الفرصة" /><select required><option value="">نوع الفرصة</option><option>تدريب</option><option>مشروع قصير</option></select><textarea required placeholder="وصف الفرصة والمهارات المطلوبة"></textarea><button class="button primary">إرسال النموذج التجريبي ←</button></form><small style="display:block;color:#929c93;margin-top:12px">لن تُحفظ البيانات أو تُنشر للعامة حالياً.</small></div>`));
    window.scrollTo({top:0,behavior:'smooth'});
  }else{
